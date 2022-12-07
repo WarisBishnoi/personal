@@ -22,7 +22,7 @@
 				],
 				"metrics_collection_interval": 30,
 				"resources": [
-					"/"
+					"*"
 				]
 			},
 
