@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    command: mongod --auth --bind_ip_all
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: jD5C3AdfrercfFi86SCNU
+      MONGO_INITDB_DATABASE: stage
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodb_data:/data/db
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8080:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: jD5C3AdfrercfFi86SCNU
+      ME_CONFIG_MONGODB_URL: mongodb://admin:jD5C3AdfrercfFi86SCNU@mongodb:27017
