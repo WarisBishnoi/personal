@@ -1,0 +1,19 @@
+db.createUser(
+   {
+     user: "admin1",
+     pwd: "admin121",
+     roles: [ 
+       { role: "readWrite", db: "test" }
+
+     ],
+     authenticationRestrictions: [
+       {
+         clientSource: ["112.196.81.250/32", "125.21.216.158/32", "182.73.149.42/32", "112.196.25.234/32", "10.110.0.0/16"]
+       }
+     ]
+   }
+)
+--------------------------------------------------------------
+db.getUser("admin", {
+    showAuthenticationRestrictions: true
+})
